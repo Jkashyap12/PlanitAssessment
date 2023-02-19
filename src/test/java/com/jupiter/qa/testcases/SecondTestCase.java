@@ -16,6 +16,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class SecondTestCase extends TestBase {
 
 	LoginPage loginPage;
@@ -41,19 +43,24 @@ public class SecondTestCase extends TestBase {
 		}
 	
 	@Test(priority=1,dataProvider = "getTestData",invocationCount=5)
-	public void verifySuccessMessage(String Forename, String Email, String Message){
-		String expectedMessage="Thanks "+ Forename+", we appreciate your feedback.";
-		contactsPage = homePage.navigateToContactsPage();
+	public void verifySuccessMessage(String Forename, String Email, String Message) throws IOException {
+		String expectedMessage = "Thanks " + Forename + ", we appreciate your feedback.";
+		try {
+			contactsPage = homePage.navigateToContactsPage();
 
-		//Enter Mandatory fields
-		contactsPage.inputForename(Forename);
-		contactsPage.inputEmail(Email);
-		contactsPage.inputMessage(Message);
+			//Enter Mandatory fields
+			contactsPage.inputForename(Forename);
+			contactsPage.inputEmail(Email);
+			contactsPage.inputMessage(Message);
 
-		//Click on Submit Button
-		contactsPage.clickOnSubmitButton();
+			//Click on Submit Button
+			contactsPage.clickOnSubmitButton();
 
-		Assert.assertTrue(contactsPage.validateSuccessAlertMessage(expectedMessage),"Fail: Success alert is not correct");
+			Assert.assertTrue(contactsPage.validateSuccessAlertMessage(expectedMessage), "Fail: Success alert is not correct");
+		}catch (Exception e){
+			testUtil.takeScreenshot();
+			throw e;
+		}
 	}
 
 	@DataProvider

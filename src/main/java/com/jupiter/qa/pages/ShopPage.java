@@ -10,12 +10,9 @@ public class ShopPage extends TestBase{
 
     @FindBy(xpath = "//li//h4[text()='%s']/..//p/a")
     WebElement item ;
-
-    String itemLocator="//li//h4[text()='%s']/..//p/a";
-
     @FindBy(xpath = "//li[@id='nav-cart']//a[contains(text(),'Cart')]")
     WebElement cartLink;
-
+    String itemLocator="//li//h4[text()='%s']/..//p/a";
     public ShopPage() {
         PageFactory.initElements(driver, this);
     }

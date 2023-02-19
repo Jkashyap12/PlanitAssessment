@@ -5,21 +5,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.text.DecimalFormat;
 import java.util.List;
 
 public class CartPage extends TestBase{
     @FindBy(xpath = "//tr[@class='cart-item ng-scope']//td[text()=' %s']/..//input[@name ='quantity']")
     WebElement itemQuantity;
-
+    @FindBy(xpath="//strong[@class='total ng-binding']")
+    WebElement total;
     String itemQuantityLocator="//tr[@class='cart-item ng-scope']//td[text()=' %s']/..//input[@name ='quantity']";
     String priceLocator="//tr[@class='cart-item ng-scope']//td[text()=' %s']/..//td[2]";
 
     String subtotalLocator ="//tr[@class='cart-item ng-scope']//td[text()=' %s']/..//td[4]";
-
-    @FindBy(xpath="//strong[@class='total ng-binding']")
-    WebElement total;
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
     public CartPage() {

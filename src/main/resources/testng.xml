@@ -6,13 +6,11 @@
 		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
 
-
 	<test name="Jupiter Toys Test Cases">
 		<classes>
 			<class name="com.jupiter.qa.testcases.FirstTestCase"></class>
 			<class name="com.jupiter.qa.testcases.SecondTestCase"></class>
 			<class name="com.jupiter.qa.testcases.ThirdTestCase"></class>
-
 		</classes>
 	</test>
 </suite>

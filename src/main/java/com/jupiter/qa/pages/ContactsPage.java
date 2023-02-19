@@ -15,11 +15,6 @@ public class ContactsPage extends TestBase {
 	WebElement submitButton;
 	@FindBy(css="span[id='forename-err']")
 	WebElement ForenameValidation;
-
-	String forenameError= "span[id='forename-err']";
-	String emailError="span[id='email-err']";
-
-	String messageError="span[id='message-err']";
 	@FindBy(css="span[id='email-err']")
 	WebElement EmailValidation;
 	@FindBy(css="span[id='message-err']")
@@ -30,14 +25,14 @@ public class ContactsPage extends TestBase {
 	WebElement EmailMandatoryField;
 	@FindBy(xpath= "//textarea[@id='message']")
 	WebElement MessageMandatoryField;
-
 	@FindBy(xpath = "//div[@class='alert alert-success']")
 	WebElement SuccessAlertMessage;
-
-	String alertMessageLocator ="//div[@class='alert alert-success']";
-
 	@FindBy(xpath = "//div[@class='alert alert-success']/strong")
 	WebElement SuccessAlertName;
+	String alertMessageLocator ="//div[@class='alert alert-success']";
+	String forenameError= "span[id='forename-err']";
+	String emailError="span[id='email-err']";
+	String messageError="span[id='message-err']";
 	// Initializing the Page Objects:
 	public ContactsPage() {
 		PageFactory.initElements(driver, this);

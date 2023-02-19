@@ -86,6 +86,5 @@ public class TestBase {
 	public static void waitForElement(String locator){
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-
 	}
 }
